@@ -8,7 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import entity.Subject;
 import entity.Teacher;
+import database.SubjectDatabase;
 
 public class TeacherDatabase {
 
@@ -24,13 +26,11 @@ public class TeacherDatabase {
 		
 		while (rs.next()) {
 
-			//System.out.println(" > " + rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4));
-			
 			Teacher teach = new Teacher();
 			teach.setId(rs.getInt(1));
 			teach.setSurname(rs.getString(2));
 			teach.setName(rs.getString(3));
-			teach.setSubjectID(rs.getInt(5));
+			teach.setSubjectID(rs.getInt(4));
 			teach.setClassID(rs.getInt(5));
 			teachers.add(teach);
 			
@@ -156,4 +156,11 @@ public class TeacherDatabase {
 		return t;	
 	}
 	
+	//--------------------------------------------------------------------------------
+	public String getSubjectNameByTeacherID(int teacherID) throws SQLException
+	{
+		SubjectDatabase db = new SubjectDatabase();
+		//List<Subject> subjects = db.getAllSubjects();
+		return db.getSubjectNameByID(getTeacherByID(teacherID).getSubjectID());
+	}
 }

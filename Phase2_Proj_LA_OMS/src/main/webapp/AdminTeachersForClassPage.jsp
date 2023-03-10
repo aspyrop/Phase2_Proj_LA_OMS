@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="entity.Teacher" %>
+<%@ page import="database.TeacherDatabase" %>
 <%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
@@ -40,13 +41,29 @@ table, th, td {
 			<div class="navbar">
 				<ul>
 					<li><a href = "AdminPage.jsp">Console</a></li>
-					<li><a href = "AdminSubjectsForClassPage.jsp">Subjects_4C</a></li>
-					<li><a href = "#">Teachers_4C</a></li>
-					<li><a href = "AdminStudentsForClassPage.jsp">Students_4C</a></li>
-					<li><a href = "AdminReportForClassPage.jsp">Report_4C</a></li>
+					<li>
+						<form action="AdminSubjectsForClassPage" method="get">
+							<a href = "AdminSubjectsForClassPage">Subjects_4C</a>
+						</form>
+					</li>
+					<li>
+						<form action="AdminTeachersForClassPage" method="get">
+							<a href = "AdminTeachersForClassPage">Teachers_4C</a>
+						</form>
+					</li>
+					<li>
+						<form action="AdminStudentsForClassPage" method="get">
+							<a href = "AdminStudentsForClassPage">Students_4C</a>
+						</form>
+					</li>
+					<li>
+						<form action="AdminReportForClassPage" method="get">
+							<a href = "AdminReportForClassPage">Report_4C</a>
+						</form>
+					</li>
 					<li><a href = "LogoutPage.jsp">Logout</a></li>
 				</ul>
-			</div>	
+			</div>
 
 			<h3><%= COMPANY_NAME %> | OnLine Management System</h3>
 			<h1>Administrator's Console > Teachers for a Class</h1>
@@ -64,7 +81,7 @@ table, th, td {
 			    	<th>Teacher ID</th>
 			    	<th>Teacher Surname</th>
 			    	<th>Teacher Name</th>
-			    	<th>Teacher Subject ID</th>
+			    	<th>Teacher Subject</th>
 			    	<th>A1|A2|A3 (Class)</th>			    			    	
 				</tr>
 			  
@@ -73,7 +90,7 @@ table, th, td {
 				    <td><%= teacher.getId() %></td>
 				    <td><%= teacher.getSurname() %></td>
 				    <td><%= teacher.getName() %></td>
-				    <td><%= teacher.getSubjectID() %></td>
+				    <td><%= teacher.getSubjectOfTeacher() %></td>
 				    
 				    <%
 				    int classID = teacher.getClassID();
@@ -91,9 +108,9 @@ table, th, td {
 
 				    <td>
 					    <form action="AdminTeachersForClassPage" method="post">
-						    <input type="checkbox" name="classID" value="1" <% if (class_a1) %> checked> <% else %> >
-						    <input type="checkbox" name="classID" value="2" <% if (class_a2) %> checked> <% else %> >
-						    <input type="checkbox" name="classID" value="3" <% if (class_a3) %> checked> <% else %> >
+						    <input type="checkbox" name="classID_a1" value="1" <% if (class_a1) %> checked> <% else %> >
+						    <input type="checkbox" name="classID_a2" value="1" <% if (class_a2) %> checked> <% else %> >
+						    <input type="checkbox" name="classID_a3" value="1" <% if (class_a3) %> checked> <% else %> >
 							<input type="hidden" name="teacherID" value=<%= teacher.getId() %> >
 							<input type="submit" value="Assign">
 						</form>

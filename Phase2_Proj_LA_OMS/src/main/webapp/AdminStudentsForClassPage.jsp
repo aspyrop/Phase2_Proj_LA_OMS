@@ -34,19 +34,34 @@ table, th, td {
 	List<Student> students = (List<Student>) request.getAttribute("students");
 	%>
 	
-	
 	<%	if (username != null) {%>
 
 			<div class="navbar">
 				<ul>
 					<li><a href = "AdminPage.jsp">Console</a></li>
-					<li><a href = "AdminSubjectsForClassPage.jsp">Subjects_4C</a></li>
-					<li><a href = "AdminTeachersForClassPage.jsp">Teachers_4C</a></li>
-					<li><a href = "#">Students_4C</a></li>
-					<li><a href = "AdminReportForClassPage.jsp">Report_4C</a></li>
+					<li>
+						<form action="AdminSubjectsForClassPage" method="get">
+							<a href = "AdminSubjectsForClassPage">Subjects_4C</a>
+						</form>
+					</li>
+					<li>
+						<form action="AdminTeachersForClassPage" method="get">
+							<a href = "AdminTeachersForClassPage">Teachers_4C</a>
+						</form>
+					</li>
+					<li>
+						<form action="AdminStudentsForClassPage" method="get">
+							<a href = "AdminStudentsForClassPage">Students_4C</a>
+						</form>
+					</li>
+					<li>
+						<form action="AdminReportForClassPage" method="get">
+							<a href = "AdminReportForClassPage">Report_4C</a>
+						</form>
+					</li>
 					<li><a href = "LogoutPage.jsp">Logout</a></li>
 				</ul>
-			</div>	
+			</div>
 
 			<h3><%= COMPANY_NAME %> | OnLine Management System</h3>
 			<h1>Administrator's Console > Students for a Class</h1>

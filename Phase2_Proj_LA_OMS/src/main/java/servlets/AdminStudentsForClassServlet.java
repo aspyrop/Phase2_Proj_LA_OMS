@@ -56,7 +56,7 @@ public class AdminStudentsForClassServlet extends HttpServlet {
 			
 			classID = Integer.parseInt(request.getParameter("classID"));
 			int studentID = Integer.parseInt(request.getParameter("studentID"));
-			System.out.println("studentID =" + studentID + " | classID = " + classID);
+			System.out.println("studentID = " + studentID + " | classID = " + classID);
 			
 			StudentDatabase db = new StudentDatabase();
 			try {

@@ -1,5 +1,11 @@
 package entity;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import database.SubjectDatabase;
+
 public class Teacher {
 
 	private int id;
@@ -61,6 +67,15 @@ public class Teacher {
 		this.classID = classID;
 	}
 
+	public String getSubjectOfTeacher() throws SQLException {
+
+		int subjectID = this.getSubjectID();
+		SubjectDatabase db = new SubjectDatabase();
+		//List<Subject> subjects = db.getAllSubjects();
+		return db.getSubjectNameByID(subjectID);
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Teacher [id=" + id + ", surname=" + surname + ", name=" + name + ", subjectID=" + subjectID + ", classID=" + classID + "]";
