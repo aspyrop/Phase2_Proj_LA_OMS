@@ -155,4 +155,30 @@ public class StudentDatabase {
 		return s;	
 	}
 	
+	//--------------------------------------------------------------------------------
+	public List<Student> getAllStudentsByClassID(int classID) throws SQLException
+	{
+		List<Student> students = new ArrayList<Student>();
+
+		String sql = "SELECT * FROM learnersacademy.students WHERE class_id=?";
+		Connection conn = DBConnection.dbConn(); //1. DB Connection
+		PreparedStatement stat = conn.prepareStatement(sql); //2. Create the statement
+		stat.setInt(1, classID);
+
+		ResultSet rs = stat.executeQuery(); //3. Execute the query		
+		
+		while (rs.next()) {
+			
+			Student stu = new Student();
+			stu.setId(rs.getInt(1));
+			stu.setSurname(rs.getString(2));
+			stu.setName(rs.getString(3));
+			stu.setMiddlename(rs.getString(4));
+			stu.setClassID(rs.getInt(5));
+			students.add(stu);
+		}
+		return students;
+
+	}
+	
 }

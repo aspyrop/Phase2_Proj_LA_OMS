@@ -156,7 +156,7 @@ public class TeacherDatabase {
 		}
 		return t;	
 	}
-	
+
 	//--------------------------------------------------------------------------------
 	public String getSubjectNameByTeacherID(int teacherID) throws SQLException
 	{
