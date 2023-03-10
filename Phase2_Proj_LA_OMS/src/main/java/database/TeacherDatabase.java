@@ -17,7 +17,7 @@ public class TeacherDatabase {
 	{
 		List<Teacher> teachers = new ArrayList<Teacher>();
 		
-		String sql = "SELECT * FROM learnersacademy.Teachers"; // query to get all Teachers;
+		String sql = "SELECT * FROM learnersacademy.teachers"; // query to get all Teachers;
 		Connection conn = DBConnection.dbConn(); //1. DB Connection
 		Statement stat = conn.createStatement(); //2. Create the statement
 		ResultSet rs = stat.executeQuery(sql); //3. Execute the query
@@ -42,7 +42,7 @@ public class TeacherDatabase {
 	public int maxTeacherID() throws SQLException
 	{
 		int id = 0;
-		String sql = "SELECT MAX(Teacher_id) FROM learnersacademy.teachers";
+		String sql = "SELECT MAX(teacher_id) FROM learnersacademy.teachers";
 		Connection conn = DBConnection.dbConn(); //1. DB Connection
 		Statement stat = conn.createStatement(); //2. Create the statement
 		ResultSet rs = stat.executeQuery(sql); //3. Execute the query

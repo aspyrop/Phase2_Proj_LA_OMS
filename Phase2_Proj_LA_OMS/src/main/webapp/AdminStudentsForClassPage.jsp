@@ -39,7 +39,7 @@ table, th, td {
 
 			<div class="navbar">
 				<ul>
-					<li><a href = "AdminPage.jsp">Admin_Console</a></li>
+					<li><a href = "AdminPage.jsp">Console</a></li>
 					<li><a href = "AdminSubjectsForClassPage.jsp">Subjects_4C</a></li>
 					<li><a href = "AdminTeachersForClassPage.jsp">Teachers_4C</a></li>
 					<li><a href = "#">Students_4C</a></li>

@@ -39,7 +39,7 @@ table, th, td {
 
 			<div class="navbar">
 				<ul>
-					<li><a href = "AdminPage.jsp">Admin_Console</a></li>
+					<li><a href = "AdminPage.jsp">Console</a></li>
 					<li><a href = "AdminSubjectsForClassPage.jsp">Subjects_4C</a></li>
 					<li><a href = "#">Teachers_4C</a></li>
 					<li><a href = "AdminStudentsForClassPage.jsp">Students_4C</a></li>
@@ -74,12 +74,26 @@ table, th, td {
 				    <td><%= teacher.getSurname() %></td>
 				    <td><%= teacher.getName() %></td>
 				    <td><%= teacher.getSubjectID() %></td>
+				    
+				    <%
+				    int classID = teacher.getClassID();
+				    boolean class_a1 = false, class_a2 = false, class_a3 = false;
+				    switch (classID) {
+			    	case 1: class_a1 = false; class_a2 = false; class_a3 = true; break;
+			    	case 10: class_a1 = false; class_a2 = true; class_a3 = false; break;
+			    	case 11: class_a1 = false; class_a2 = true; class_a3 = true; break;
+			    	case 100: class_a1 = true; class_a2 = false; class_a3 = false; break;
+			    	case 101: class_a1 = true; class_a2 = false; class_a3 = true; break;
+			    	case 110: class_a1 = true; class_a2 = true; class_a3 = false; break;
+			    	case 111: class_a1 = true; class_a2 = true; class_a3 = true; break;
+				    }
+				    %>
 
 				    <td>
-					    <form action="AdminTeacherssForClassPage" method="post">
-						    <input type="radio" name="classID" value="1" <% if (teacher.getClassID() == 1) %> checked> <% else %> >
-						    <input type="radio" name="classID" value="2" <% if (teacher.getClassID() == 2) %> checked> <% else %> >
-						    <input type="radio" name="classID" value="3" <% if (teacher.getClassID() == 3) %> checked> <% else %> >
+					    <form action="AdminTeachersForClassPage" method="post">
+						    <input type="checkbox" name="classID" value="1" <% if (class_a1) %> checked> <% else %> >
+						    <input type="checkbox" name="classID" value="2" <% if (class_a2) %> checked> <% else %> >
+						    <input type="checkbox" name="classID" value="3" <% if (class_a3) %> checked> <% else %> >
 							<input type="hidden" name="teacherID" value=<%= teacher.getId() %> >
 							<input type="submit" value="Assign">
 						</form>

@@ -34,7 +34,7 @@ table, th, td {
 	
 			<div class="navbar">
 				<ul>
-					<li><a href = "#">Admin_Console</a></li>
+					<li><a href = "#">Console</a></li>
 					<li>
 						<form action="AdminSubjectsForClassPage" method="get">
 							<a href = "AdminSubjectsForClassPage">Subjects_4C</a>
