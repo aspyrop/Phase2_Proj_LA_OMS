@@ -71,7 +71,6 @@ public class Teacher {
 
 		int subjectID = this.getSubjectID();
 		SubjectDatabase db = new SubjectDatabase();
-		//List<Subject> subjects = db.getAllSubjects();
 		return db.getSubjectNameByID(subjectID);
 	}
 	
