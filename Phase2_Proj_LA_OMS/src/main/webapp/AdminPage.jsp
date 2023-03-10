@@ -54,13 +54,12 @@ table, th, td {
 						<form action="AdminReportForClassPage" method="get">
 							<a href = "AdminReportForClassPage">Report_4C</a>
 						</form>
-					</li>
 					<li><a href = "LogoutPage.jsp">Logout</a></li>
 				</ul>
 			</div>
 			
 			<h3><%= COMPANY_NAME %> | OnLine Management System</h3>
-			<h1>Administrator's Console</h1>
+			<h1>Console Administration</h1>
 			
 			<p>
 			Please note that according to project specifications, administration (i.e. insertion, update, delete)<br>

@@ -27,10 +27,31 @@ public class SubjectDatabase {
 			Subject subject = new Subject();
 			subject.setSubjectID(rs.getInt(1));
 			subject.setSubjectName(rs.getString(2));
+			subject.setClassID(rs.getInt(3));
 			subjects.add(subject);
 			
 		}
 		return subjects;
+	}
+	
+	//--------------------------------------------------------------------------------
+	public boolean updateSubjectClassByID(int subjectID, int classID) throws SQLException
+	{
+		String sql = "UPDATE learnersacademy.subjects SET class_id=? WHERE subject_id=?";
+		
+		Connection conn = DBConnection.dbConn(); //1. DB Connection
+		PreparedStatement stat = conn.prepareStatement(sql); //2. Create the statement
+		stat.setInt(1, classID);
+		stat.setInt(2, subjectID);
+		
+		try {
+			stat.execute(); //3. Execute the query
+		}
+		catch (Exception e) {
+			System.out.println(" ---> ERROR!");
+			return false;
+		}
+		return true;	
 	}
 	
 	//--------------------------------------------------------------------------------
@@ -48,6 +69,7 @@ public class SubjectDatabase {
 		while (rs.next()) {
 			s.setSubjectID(rs.getInt(1));
 			s.setSubjectName(rs.getString(2));
+			s.setClassID(rs.getInt(3));
 		}
 		return s;	
 	}

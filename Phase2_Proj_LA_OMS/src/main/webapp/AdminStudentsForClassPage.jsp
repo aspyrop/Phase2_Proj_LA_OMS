@@ -64,11 +64,11 @@ table, th, td {
 			</div>
 
 			<h3><%= COMPANY_NAME %> | OnLine Management System</h3>
-			<h1>Administrator's Console > Students for a Class</h1>
+			<h1>Students Administration</h1>
 			
 			<%	if (error != null) {%>
 					<div class="error">
-						<p style="color:red">Error! <%= error %></p>
+						<p style="color:red"><%= error %></p>
 					</div>
 			<%	}%>			
 			

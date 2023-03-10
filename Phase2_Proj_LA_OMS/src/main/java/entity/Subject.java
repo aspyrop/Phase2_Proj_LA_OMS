@@ -4,6 +4,7 @@ public class Subject {
 
 	private int subjectID;
 	private String subjectName;
+	private int classID;
 	
 	public Subject() {
 
@@ -29,6 +30,14 @@ public class Subject {
 
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;
+	}
+	
+	public int getClassID() {
+		return classID;
+	}
+
+	public void setClassID(int classID) {
+		this.classID = classID;
 	}
 
 	@Override

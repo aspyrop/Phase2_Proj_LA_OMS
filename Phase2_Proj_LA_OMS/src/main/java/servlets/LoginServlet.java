@@ -50,12 +50,12 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect("AdminPage.jsp"); //URL
 			}
 			else {
-				response.sendRedirect("LoginPage.jsp?error=Invalid admin credentials");
+				response.sendRedirect("LoginPage.jsp?error=Error! Invalid admin credentials.");
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			response.sendRedirect("LoginPage.jsp?error=Something went wrong; contact administrator"); //URL
+			response.sendRedirect("LoginPage.jsp?error=Error! Something went wrong; contact administrator."); //URL
 		}
 	}
 }

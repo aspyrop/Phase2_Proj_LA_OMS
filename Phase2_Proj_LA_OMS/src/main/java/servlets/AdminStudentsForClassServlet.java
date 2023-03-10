@@ -69,15 +69,15 @@ public class AdminStudentsForClassServlet extends HttpServlet {
 					System.out.println("< Exit AdminStudentsForClassServlet | doPost");
 				}
 				else
-					response.sendRedirect("AdminStudentsForClassPage.jsp?error=No class assignment performed");
+					response.sendRedirect("AdminStudentsForClassPage.jsp?error=Note: No class assignment performed.");
 			}
 			catch (SQLException e) {
 				e.printStackTrace();
-				response.sendRedirect("AdminStudentsForClassPage.jsp?error=Something went wrong; contact administrator"); //URL
+				response.sendRedirect("AdminStudentsForClassPage.jsp?error=Error! Something went wrong; contact administrator."); //URL
 			}
 			catch (IOException e) {
 				e.printStackTrace();
-				response.sendRedirect("AdminStudentsForClassPage.jsp?error=Something went wrong; contact administrator"); //URL
+				response.sendRedirect("AdminStudentsForClassPage.jsp?error=Error! Something went wrong; contact administrator."); //URL
 			}
 
 		}
@@ -87,7 +87,7 @@ public class AdminStudentsForClassServlet extends HttpServlet {
 			try {
 				students = db.getAllStudents();
 				request.setAttribute("students", students);
-				RequestDispatcher dis = request.getRequestDispatcher("AdminStudentsForClassPage.jsp?error=No class assignment performed"); //URL
+				RequestDispatcher dis = request.getRequestDispatcher("AdminStudentsForClassPage.jsp?error=Note: No class assignment performed."); //URL
 				dis.forward(request, response);
 			}
 			catch (SQLException e) {

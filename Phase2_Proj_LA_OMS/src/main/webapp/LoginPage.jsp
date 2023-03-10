@@ -35,7 +35,7 @@
 
 	<%	if (error != null) {%>
 			<div class="error">
-				<p style="color:red">Error! <%= error %></p>
+				<p style="color:red"><%= error %></p>
 			</div>
 	<%	}%>
 		

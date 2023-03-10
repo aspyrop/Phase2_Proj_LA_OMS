@@ -8,9 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import entity.Subject;
+//import entity.Subject;
 import entity.Teacher;
-import database.SubjectDatabase;
+//import database.SubjectDatabase;
 
 public class TeacherDatabase {
 
@@ -95,6 +95,7 @@ public class TeacherDatabase {
 		}
 		return true;	
 	}
+	
 	//--------------------------------------------------------------------------------
 	public boolean updateTeacherClassByID(int teacherID, int classID) throws SQLException
 	{
@@ -160,7 +161,6 @@ public class TeacherDatabase {
 	public String getSubjectNameByTeacherID(int teacherID) throws SQLException
 	{
 		SubjectDatabase db = new SubjectDatabase();
-		//List<Subject> subjects = db.getAllSubjects();
 		return db.getSubjectNameByID(getTeacherByID(teacherID).getSubjectID());
 	}
 }
