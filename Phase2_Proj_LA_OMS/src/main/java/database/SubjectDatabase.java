@@ -10,6 +10,7 @@ import java.util.List;
 
 import entity.Student;
 import entity.Subject;
+import entity.Teacher;
 
 public class SubjectDatabase {
 
@@ -29,6 +30,7 @@ public class SubjectDatabase {
 			subject.setSubjectID(rs.getInt(1));
 			subject.setSubjectName(rs.getString(2));
 			subject.setClassID(rs.getInt(3));
+			subject.setTeacherID(rs.getInt(4));
 			subjects.add(subject);
 			
 		}
@@ -71,6 +73,7 @@ public class SubjectDatabase {
 			s.setSubjectID(rs.getInt(1));
 			s.setSubjectName(rs.getString(2));
 			s.setClassID(rs.getInt(3));
+			s.setTeacherID(rs.getInt(4));
 		}
 		return s;	
 	}
@@ -110,16 +113,19 @@ public class SubjectDatabase {
 			subj.setSubjectID(rs.getInt(1));
 			subj.setSubjectName(rs.getString(2));
 			subj.setClassID(rs.getInt(3));
+			subj.setTeacherID(rs.getInt(4));
 			subjects.add(subj);
 		}
 		return subjects;
 	}	
 	
-	//--------------------------------------------------------------------------------
-	public String getSubjectNameByID(int subjectID) throws SQLException
-	{
-		return getSubjectByID(subjectID).getSubjectName();
+	public String getSubjectNameByID (int subjectID) throws SQLException {
+		
+		Subject s = getSubjectByID(subjectID);
+		return s.getSubjectName();
 	}
 	
+		
+
 }
 

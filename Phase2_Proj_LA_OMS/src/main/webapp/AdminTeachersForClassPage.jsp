@@ -81,16 +81,18 @@ table, th, td {
 			    	<th>Teacher ID</th>
 			    	<th>Teacher Surname</th>
 			    	<th>Teacher Name</th>
-			    	<th>Teacher Subject</th>
+			    	<th>Teaching Subject (TS)</th>
+			    	<th>TS ID</th>
 			    	<th>A1|A2|A3 (Class)</th>			    			    	
 				</tr>
 			  
 		<%	for (Teacher teacher: teachers) { %>
 				<tr>
 				    <td><%= teacher.getId() %></td>
-				    <td><%= teacher.getSurname() %></td>
-				    <td><%= teacher.getName() %></td>
-				    <td><%= teacher.getSubjectOfTeacher() %></td>
+				    <td style="color:blue;"><b><%= teacher.getSurname() %></b></td>
+				    <td style="color:blue;"><b><%= teacher.getName() %></b></td>
+				    <td><%= teacher.specializationSubjectName() %></td>
+				    <td><%= teacher.getSpecSubjectID() %></td>
 				    
 				    <%
 				    int classID = teacher.getClassID();

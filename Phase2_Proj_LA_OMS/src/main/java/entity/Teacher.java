@@ -1,8 +1,8 @@
 package entity;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+//import java.util.ArrayList;
+//import java.util.List;
 
 import database.SubjectDatabase;
 
@@ -11,19 +11,20 @@ public class Teacher {
 	private int id;
 	private String surname;
 	private String name;
-	private int subjectID;
+	private int specSubjectID;
 	private int classID;
+	
 	
 	public Teacher() {
 
 	}
 
-	public Teacher(int id, String surname, String name, int subjectID, int classID) {
+	public Teacher(int id, String surname, String name, int specSubjectID, int classID) {
 		super();
 		this.id = id;
 		this.surname = surname;
 		this.name = name;
-		this.subjectID = subjectID;
+		this.specSubjectID = specSubjectID;
 		this.classID = classID;
 	}
 
@@ -51,14 +52,14 @@ public class Teacher {
 		this.name = name;
 	}
 
-	public int getSubjectID() {
-		return subjectID;
+	public int getSpecSubjectID() {
+		return specSubjectID;
 	}
 
-	public void setSubjectID(int subjectID) {
-		this.subjectID = subjectID;
+	public void setSpecSubjectID(int specSubjectID) {
+		this.specSubjectID = specSubjectID;
 	}
-	
+
 	public int getClassID() {
 		return classID;
 	}
@@ -67,17 +68,13 @@ public class Teacher {
 		this.classID = classID;
 	}
 
-	public String getSubjectOfTeacher() throws SQLException {
+	public String specializationSubjectName() throws SQLException {
 
-		int subjectID = this.getSubjectID();
 		SubjectDatabase db = new SubjectDatabase();
-		return db.getSubjectNameByID(subjectID);
-	}
-	
-	
-	@Override
-	public String toString() {
-		return "Teacher [id=" + id + ", surname=" + surname + ", name=" + name + ", subjectID=" + subjectID + ", classID=" + classID + "]";
+		Subject subjObj = db.getSubjectByID(this.specSubjectID);
+		String subjName = subjObj.getSubjectName();
+		return subjName;
+		
 	}
 	
 }

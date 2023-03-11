@@ -37,18 +37,22 @@ table, th, td {
 	String error = request.getParameter("error");
 	String username = (String) session.getAttribute("username");
 	
-	List<Student> students1 = (List<Student>) request.getAttribute("students1");
-	List<Student> students2 = (List<Student>) request.getAttribute("students2");
-	List<Student> students3 = (List<Student>) request.getAttribute("students3");
-	
-	List<Subject> subjects1 = (List<Subject>) request.getAttribute("subjects1");
-	List<Subject> subjects2 = (List<Subject>) request.getAttribute("subjects2");
-	List<Subject> subjects3 = (List<Subject>) request.getAttribute("subjects3");
-	
+
 	%>
 	
 	<%	if (username != null) {%>
+	
+			<%
+			List<Student> students1 = (List<Student>) request.getAttribute("students1");
+			List<Student> students2 = (List<Student>) request.getAttribute("students2");
+			List<Student> students3 = (List<Student>) request.getAttribute("students3");
+			
+			List<Subject> subjects1 = (List<Subject>) request.getAttribute("subjects1");
+			List<Subject> subjects2 = (List<Subject>) request.getAttribute("subjects2");
+			List<Subject> subjects3 = (List<Subject>) request.getAttribute("subjects3");	
+			%>
 
+	
 			<div class="navbar">
 				<ul>
 					<li><a href = "AdminPage.jsp">Console</a></li>
